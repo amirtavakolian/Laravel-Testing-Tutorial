@@ -24,3 +24,22 @@
         <env name="TELESCOPE_ENABLED" value="false"/>
     </php>
 </phpunit>
+
+<!--
+    zamani ke test E feature run mishe, laravel site E maro boot/ejra mikone
+    ke in ejra kardan - boot kardan E site niaz be ye seri config dare ke az file E
+    env mikhone.
+
+    ba estefade az tag haie <server>, dg niazi nist dast be maghadire file E env bezanim
+    va az hamin maghadir use mishe vase boot kardan E sitemon va ejra shodane test haie feature
+    (un config haii ke mad E nazaremon hastesh vase test ha use mishe)
+
+    Ex: taghire database vase ejraie test ha roye data haie ye database E dg na data haie aslie proje
+
+================================
+
+    <env name="DB_DATABASE" value=""/>
+
+    to meghdare value, esme ye databsae dg ro bezar ta test ha ro un ejra beshan.
+
+-->
