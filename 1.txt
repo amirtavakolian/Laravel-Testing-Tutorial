@@ -1,0 +1,20 @@
+
+to file E env, esme database ro ok kon
+
+php artisan migrate ro run kon ta migration ha run beshan.
+
+-----------------------------
+
+# Create a test file:
+
+az tarighe esme test class ha, mitonim befahmim felan test class
+marbot be kodom bakhash az site E ma hastesh va age moshkeli vase
+testmon pish omad bedonim un test marbot be kodom bakhshe va berim
+un moshkel ro bartaraf konim
+
+
+php artisan make:test Models/UserTest
+
+chon in testemon marbot be database mishe (chon az tarighe model datamon
+ro varede database mikonim) pas baiad ye directory besazam be esme models
+va tamame test haie database ro mizarim unja
