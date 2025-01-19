@@ -2,7 +2,9 @@
 
 namespace Tests\Feature\Models;
 
+use App\Models\Post;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -55,5 +57,41 @@ class UserTest extends TestCase
 
         // ine khobie test nevisi :D :P
 
+    }
+
+    public function test_user_has_many_posts()
+    {
+        $user = User::factory()->hasPosts(3)->create();
+
+        $this->assertInstanceOf(Collection::class, $user->posts);
+
+        $this->assertTrue($user->id == $user->posts->first()->user_id);
+
+        $this->assertInstanceOf(Post::class, $user->posts()->first());
+
+        $this->assertDatabaseCount('posts', 3);
+    }
+
+    public function test_user_has_many_posts1()
+    {
+        $user = User::factory()->create();
+
+        $posts = Post::factory()->for($user)->count(5)->create();
+
+        $this->assertInstanceOf(Collection::class, $user->posts);
+
+        $this->assertTrue($user->posts->contains($posts->first()));
+
+    }
+
+    public function test_user_has_many_posts_2()
+    {
+        $user = User::factory()->create();
+
+        $posts = Post::factory()->count(5)->for($user)->make()->toArray();
+
+        $user->posts()->insert($posts);
+
+        $this->assertInstanceOf(Collection::class, $user->posts);
     }
 }
