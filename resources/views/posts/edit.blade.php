@@ -8,6 +8,16 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Welcome Dude...</h1>
+
+<form action="{{ route('posts.update', ['post' => $post]) }}" method="POST">
+    @csrf
+    @method('PUT')
+    <input type="text" name="title" value="{{ $post->title }}">
+    <br><br>
+    <textarea name="content">{{ $post->content }}</textarea>
+    <br><br>
+    <input type="submit" value="Save">
+</form>
+
 </body>
 </html>

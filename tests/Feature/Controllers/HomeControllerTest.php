@@ -32,6 +32,6 @@ class HomeControllerTest extends TestCase
 
         $response->assertCookie('laravel_session');
 
-        $response->assertViewIs('welcome');
+        $response->assertViewIs('home');
     }
 }
