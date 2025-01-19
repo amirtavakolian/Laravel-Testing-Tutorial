@@ -1,0 +1,24 @@
+
+chera baiad test E http benevisim?
+vase baresie khorojie request - darkhasti ke karbar be
+narm afzar E ma ferestade, test haie http neveshte mishan.
+
+
+User's Request --> Router --> Controller
+   |                            |
+   |                            |
+   |<-- <--   Response   <-- <--|
+
+to test haie http, az janebe karbar, request mizanim
+ta be router bere va bad be controller, ta response vasamon ersal beshe
+->
+sepas un responsei ke miad ro baiad baresi konim ke aya un
+reponse, motenaseb ba chizi ke ma mikhaim hastesh ya na?
+
+pas, test haie http, test haie controller hastesh :D 
+
+Ex:
+karbari ke login nakarde nabaiad betone commnet bezar va paiame lotfan login konid ro baiad bebine.
+TEST => baiad test konim ke vaghan hamintore ya na?
+
+
