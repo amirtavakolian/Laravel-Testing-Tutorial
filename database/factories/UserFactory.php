@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Support\Str;
 
 /**
@@ -36,5 +38,12 @@ class UserFactory extends Factory
         return $this->state(fn (array $attributes) => [
             'email_verified_at' => null,
         ]);
+    }
+
+    public function withAdminRole(): static
+    {
+        return $this->state(new Sequence(
+            ['is_admin' => mt_rand(0, 1)]
+        ));
     }
 }
