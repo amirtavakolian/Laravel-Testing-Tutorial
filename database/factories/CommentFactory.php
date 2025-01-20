@@ -21,8 +21,6 @@ class CommentFactory extends Factory
     {
         return [
             "content" => fake()->sentence,
-            "post_id" => Post::factory(),
-            "user_id" => User::factory()->state(['is_admin' => 1])
         ];
     }
 }

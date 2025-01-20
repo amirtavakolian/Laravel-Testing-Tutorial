@@ -8,15 +8,14 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-
-    public function store(Request $request)
+    public function store(Request $request, Post $post)
     {
-        Comment::query()->create([
+        $post->comments()->create([
             'content' => $request->input('content'),
-            'post_id' => $request->input('post_id'),
             'user_id' => auth()->user()->id
         ]);
 
         return redirect()->back()->with('comment_saved', 'comment added successfully');
     }
+
 }

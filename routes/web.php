@@ -11,7 +11,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::group(['prefix' => 'posts'], function () {
     Route::get('/create', [PostController::class, 'create'])->name('posts.create');
-    Route::post('/store', [PostController::class, 'store'])->name('posts.store');
+    Route::post('/store', [PostController::class, 'store'])->name('posts.store')->middleware('auth');
     Route::get('/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
     Route::put('/{post}/update', [PostController::class, 'update'])->name('posts.update');
     Route::get('/{post}', [PostController::class, 'show'])->name('posts.show');
@@ -25,5 +25,5 @@ Route::group(['prefix' => 'auth', 'middleware' => 'guest'], function () {
 });
 
 Route::group(['prefix' => '/comment', 'middleware' => 'auth'], function () {
-    Route::post('/store', [CommentController::class, 'store'])->name('comment.store');
+    Route::post('/{post}/store', [CommentController::class, 'store'])->name('comment.store');
 });

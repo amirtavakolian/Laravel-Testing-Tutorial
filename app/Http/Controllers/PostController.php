@@ -11,7 +11,7 @@ class PostController extends Controller
     {
         $postData = $request->only(['title', 'content']);
 
-        $postData['user_id'] = 1;
+        $postData['user_id'] = auth()->user()->id;
 
         Post::query()->create($postData);
 
