@@ -4,7 +4,6 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\SingleController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -15,7 +14,7 @@ Route::group(['prefix' => 'posts'], function () {
     Route::post('/store', [PostController::class, 'store'])->name('posts.store');
     Route::get('/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
     Route::put('/{post}/update', [PostController::class, 'update'])->name('posts.update');
-    Route::get('/{post}', [SingleController::class, 'show']);
+    Route::get('/{post}', [PostController::class, 'show'])->name('posts.show');
 });
 
 Route::group(['prefix' => 'auth', 'middleware' => 'guest'], function () {

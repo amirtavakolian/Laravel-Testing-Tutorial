@@ -37,11 +37,10 @@
     <br>
     @auth()
         <h2>write comment: </h2>
-        <form method="POST" action="{{ route('comment.store') }}">
+        <form method="POST" action="{{ route('comment.store', ['post' => $post]) }}">
             @csrf
             <textarea name="content"></textarea>
             <br><br>
-            <input type="hidden" name="post_id" value="{{ $post->id }}">
             <input type="submit" value="submit">
         </form>
     @else()

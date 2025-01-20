@@ -39,4 +39,9 @@ class PostController extends Controller
         return redirect()->route('home')->with('post-updated', 'post updated successfully');
     }
 
+    public function show(Post $post)
+    {
+        return view('posts.single', compact('post'));
+    }
+
 }
