@@ -46,4 +46,18 @@ class UserFactory extends Factory
             ['is_admin' => mt_rand(0, 1)]
         ));
     }
+
+    public function admin()
+    {
+        return $this->state(fn (array $attributes) => [
+            'is_admin' => 1,
+        ]);
+    }
+
+    public function user()
+    {
+        return $this->state(fn (array $attributes) => [
+            'is_admin' => 0,
+        ]);
+    }
 }
